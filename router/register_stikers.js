@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 
 const handleStiker = async () => {
     const data = await Stiker.find()
-    .select({__v: 0})
+        .select({ __v: 0 })
     return data
 }
 
@@ -59,9 +59,22 @@ router.get('/all/data', async (req, res) => {
     })
 })
 
-router.delete('/delete/data/:id' ,async (req , res) => {
-    const data = await Stiker.deleteOne({_id: req.params.id})
-    res.send(data)
+router.post('/delete/data/:id', async (req, res) => {
+    if (!req.params.id)
+        return res.status(400).json({
+            status: false,
+            massage: "Ma'lumot to'liq emas"
+        })
+    const data = await Stiker.deleteOne({ _id: req.params.id })
+    if (!data)
+        return res.status(404).json({
+            status: false,
+            massage: "Buday ishtirokchi mavjud emas"
+        })
+    res.status(200).json({
+        status: true,
+        massage: "Ishtirokchi o'chirildi"
+    })
 })
 
 

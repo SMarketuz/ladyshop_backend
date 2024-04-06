@@ -40,6 +40,7 @@ const handleStiker = async () => {
     return data
 }
 
+
 router.get('/one/data', async (req, res) => {
     handleStiker()
         .then(async (response) => {
@@ -57,5 +58,11 @@ router.get('/all/data', async (req, res) => {
         data
     })
 })
+
+router.delete('/delete/data/:id' ,async (req , res) => {
+    const data = await Stiker.deleteOne({_id: req.params.id})
+    res.send(data)
+})
+
 
 module.exports = router

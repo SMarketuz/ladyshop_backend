@@ -32,7 +32,7 @@ router.get('/get' , async (req , res) => {
     })
 })
 
-router.post('/delete/:di' , async (req , res) => {
+router.post('/delete/:id' , async (req , res) => {
     const data = await Pris.deleteOne({_id: req.params.id})
     res.status(200).json({
         status: true,

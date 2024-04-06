@@ -47,7 +47,7 @@ router.get('/one/data', async (req, res) => {
             let as = Math.floor(Math.random() * response.length)
             res.send(response[as])
             let a = response[as]
-            // let r = await Stiker.deleteOne({ _id: a._id })
+            let r = await Stiker.deleteOne({ _id: a._id })
         })
 })
 

@@ -5,6 +5,7 @@ const antpoints = (app) => {
     app.use(express.json())
     app.use('/api/stiker/register' , require('../router/register_stikers'))
     app.use('/api/pris' , require('../router/prises'))
+    app.use('/api/winners' , require('../router/winners'))
 }
 
   

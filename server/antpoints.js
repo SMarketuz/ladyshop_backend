@@ -6,6 +6,7 @@ const antpoints = (app) => {
     app.use('/api/stiker/register' , require('../router/register_stikers'))
     app.use('/api/pris' , require('../router/prises'))
     app.use('/api/winners' , require('../router/winners'))
+    app.use('/api/arxivs' , require('../router/arxivs'))
 }
 
   

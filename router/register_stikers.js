@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Stiker } = require('../models/register_stiker');
+const {Arxiv} = require('../models/arxiv')
 
 router.post('/', async (req, res) => {
     const { firstName, lastName, phoneNumber, stikerId } = req.body;
@@ -53,8 +54,14 @@ router.get('/one/data', async (req, res) => {
             res.send(response[as])
             let a = response[as]
             // let r = await Stiker.deleteOne({ _id: a._id })
-            let p = await Stiker.deleteMany({phoneNumber: a.phoneNumber})
-            // const pres = await
+            await Stiker.deleteMany({phoneNumber: a.phoneNumber})
+            let pres = await Arxiv.create({
+                firstName: a.firstName,
+                lastName: a.lastName,
+                phoneNumber: a.phoneNumber,
+                stikerId: a.stikerId,
+                date: a.date
+            })
         })
 })
 

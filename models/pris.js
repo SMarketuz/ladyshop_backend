@@ -1,5 +1,4 @@
 const { default: mongoose } = require("mongoose");
-const { type } = require("os");
 
 
 const prisSchema = new mongoose.Schema({

@@ -15,6 +15,11 @@ router.post('/', async (req, res) => {
             status: false,
             massage: "Stiker to'g'ri emas"
         })
+    if (typeof phoneNumber != 'number')
+        return res.status(400).json({
+            status: false,
+            massage: "Telefon to'g'ri emas"
+        })
     if (data)
         return res.status(400).json({
             status: false,
@@ -47,12 +52,15 @@ router.get('/one/data', async (req, res) => {
             let as = Math.floor(Math.random() * response.length)
             res.send(response[as])
             let a = response[as]
-            let r = await Stiker.deleteOne({ _id: a._id })
+            // let r = await Stiker.deleteOne({ _id: a._id })
+            let p = await Stiker.deleteMany({phoneNumber: a.phoneNumber})
+            // const pres = await
         })
 })
 
 router.get('/all/data', async (req, res) => {
     const data = await Stiker.find()
+        .select({ __v: 0 })
     res.status(200).json({
         status: true,
         data

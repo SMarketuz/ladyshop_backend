@@ -45,7 +45,7 @@ const handleStiker = async () => {
         .select({ __v: 0 })
     return data
 }
-
+   
 
 router.get('/one/data', async (req, res) => {
     handleStiker()

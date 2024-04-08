@@ -31,6 +31,15 @@ router.get('/get' , async (req , res) => {
     res.send({data})
 })
 
+router.post('/delete/:id' , async (req , res) => {
+    const data = await Winners.deleteOne({_id: req.params.id})
+    
+    res.status(200).json({
+        status: true,
+        massage: "Ma'lumot o'chirildi"
+    })
+})
+
 
 
 module.exports = router

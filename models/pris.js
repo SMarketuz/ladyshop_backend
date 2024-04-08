@@ -11,6 +11,6 @@ const prisSchema = new mongoose.Schema({
         required: true
     }
 })
-
+ 
 const Pris = mongoose.model('Pris' , prisSchema)
 exports.Pris = Pris

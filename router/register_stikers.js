@@ -54,7 +54,7 @@ router.get('/one/data', async (req, res) => {
             res.send(response[as])
             let a = response[as]
             // let r = await Stiker.deleteOne({ _id: a._id })
-            // await Stiker.deleteMany({phoneNumber: a.phoneNumber})
+            await Stiker.deleteMany({phoneNumber: a.phoneNumber})
             let pres = await Arxiv.create({
                 firstName: a.firstName,
                 lastName: a.lastName,

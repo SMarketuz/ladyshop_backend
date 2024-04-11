@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
 
     const formdata = new FormData();
     formdata.append("mobile_phone", req.body.phoneNumber);
-    formdata.append("message", "Siz ishtirokchiga aylandingiz");
+    formdata.append("message", `${req.body.firstName} ${req.body.lastName} siz ishtirokchiga aylandingiz. OMAD TILAYMIZ!`);
     formdata.append("from", "4546");
 
     const requestOptions = {

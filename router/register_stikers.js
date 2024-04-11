@@ -5,17 +5,7 @@ const { Arxiv } = require('../models/arxiv')
 const myHeaders = new Headers();
 myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTUyMDEyMzUsImlhdCI6MTcxMjYwOTIzNSwicm9sZSI6InRlc3QiLCJzaWduIjoiZmJkOGE2MWE4OTdkZWY0OGRiOTU2NjcxMmFjMmUzMzEwNDFhNzVmZGUxZGRlMjgwNDk3MzNjNGUxN2Y0YzI3MiIsInN1YiI6IjM4MTAifQ.xdq1jqv19EzgipeSpaWCD_4attQqdiKSazDD0y1gVQw");
 
-const formdata = new FormData();
-formdata.append("mobile_phone", "998907760705");
-formdata.append("message", "Bu Eskiz dan test");
-formdata.append("from", "4546");
 
-const requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: formdata,
-    redirect: "follow"
-};
 
 router.post('/', async (req, res) => {
     const { firstName, lastName, phoneNumber, stikerId } = req.body;
@@ -52,10 +42,23 @@ router.post('/', async (req, res) => {
         status: true,
         massage: "Tabriklaymiz siz konkurs ishtirokchisiga aylandingiz"
     })
-    fetch("notify.eskiz.uz/api/message/sms/send", requestOptions)
+
+    const formdata = new FormData();
+    formdata.append("mobile_phone", req.body.phoneNumber);
+    formdata.append("message", "Bu Eskiz dan test");
+    formdata.append("from", "4546");
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow"
+    };
+    let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
+    console.log(a);
 })
 
 const handleStiker = async () => {

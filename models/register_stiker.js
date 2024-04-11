@@ -17,8 +17,8 @@ const stikerSchema = new mongoose.Schema({
     stikerId: {
         type: String,
         required: true,
-        min: 4,
-        max: 4
+        min: 6,
+        max: 6
     },
     date: {
         type: Date ,

@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
             status: false,
             massage: "Ma'lumot yetarli emsa"
         })
-    if (stikerId.length > 4 || stikerId.length < 4)
+    if (stikerId.length > 6 || stikerId.length < 6)
         return res.status(400).json({
             status: false,
             massage: "Stiker to'g'ri emas"

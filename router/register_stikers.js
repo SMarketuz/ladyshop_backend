@@ -48,17 +48,17 @@ router.post('/', async (req, res) => {
     formdata.append("message", `${req.body.firstName} ${req.body.lastName}, siz ishtirokchiga aylandingiz. OMAD TILAYMIZ!`);
     formdata.append("from", "4546");
 
-    const requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: formdata,
-        redirect: "follow"
-    };
-    let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.error(error));
-    console.log(a);
+    // const requestOptions = {
+    //     method: "POST",
+    //     headers: myHeaders,
+    //     body: formdata,
+    //     redirect: "follow"
+    // };
+    // let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
+    //     .then((response) => response.text())
+    //     .then((result) => console.log(result))
+    //     .catch((error) => console.error(error));
+    // console.log(a);
 })
 
 const handleStiker = async () => {
@@ -75,7 +75,7 @@ router.get('/one/data', async (req, res) => {
             res.send(response[as])
             let a = response[as]
             // let r = await Stiker.deleteOne({ _id: a._id })
-            await Stiker.deleteMany({ phoneNumber: a.phoneNumber })
+            // await Stiker.deleteMany({ phoneNumber: a.phoneNumber })
             let pres = await Arxiv.create({
                 firstName: a.firstName,
                 lastName: a.lastName,

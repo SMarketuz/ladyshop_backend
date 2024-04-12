@@ -24,8 +24,8 @@ const arxivSchema = new mongoose.Schema({
         type: String,
     },
     date: {
-        type: Date ,
-        default: new Date()
+        type: Date,
+        default: Date.now()
     }
 })
 

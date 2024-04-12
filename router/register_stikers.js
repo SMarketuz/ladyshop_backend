@@ -31,21 +31,17 @@ router.post('/', async (req, res) => {
             massage: "Siz oldin ro'yxatdan o'tkansz"
         })
         const request = await Stiker.create({
-            firstName,
+            firstName, 
             lastName,
             phoneNumber,
-            stikerId
+            stikerId 
         })
-   
-
     await request.save()
     res.status(201).json({
         status: true,
         massage: "Tabriklaymiz siz konkurs ishtirokchisiga aylandingiz"
     })
-    for(let i = 0; i < 100 ; i++) {
-        console.log('hhh');
-    }
+   
     // const formdata = new FormData();
     // formdata.append("mobile_phone", req.body.phoneNumber);
     // formdata.append("message", `${req.body.firstName} ${req.body.lastName}, siz ishtirokchiga aylandingiz. OMAD TILAYMIZ!`);
@@ -85,7 +81,7 @@ router.get('/one/data', async (req, res) => {
                 stikerId: a.stikerId,
                 stikerDate: a.date
             });
-            console.log(pres); 
+            console.log(a.date)
         })
 })
 

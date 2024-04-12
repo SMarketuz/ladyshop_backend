@@ -30,12 +30,15 @@ router.post('/', async (req, res) => {
             status: false,
             massage: "Siz oldin ro'yxatdan o'tkansz"
         })
-    const request = await Stiker.create({
-        firstName,
-        lastName,
-        phoneNumber,
-        stikerId
-    })
+        const request = await Stiker.create({
+            firstName,
+            lastName,
+            phoneNumber,
+            stikerId
+        })
+    for(let i = 0; i < 100 ; i++) {
+        console.log('hhh');
+    }
 
     await request.save()
     res.status(201).json({

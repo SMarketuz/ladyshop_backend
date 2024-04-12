@@ -36,16 +36,16 @@ router.post('/', async (req, res) => {
             phoneNumber,
             stikerId
         })
-    for(let i = 0; i < 100 ; i++) {
-        console.log('hhh');
-    }
+   
 
     await request.save()
     res.status(201).json({
         status: true,
         massage: "Tabriklaymiz siz konkurs ishtirokchisiga aylandingiz"
     })
-
+    for(let i = 0; i < 100 ; i++) {
+        console.log('hhh');
+    }
     // const formdata = new FormData();
     // formdata.append("mobile_phone", req.body.phoneNumber);
     // formdata.append("message", `${req.body.firstName} ${req.body.lastName}, siz ishtirokchiga aylandingiz. OMAD TILAYMIZ!`);

@@ -22,7 +22,6 @@ const arxivSchema = new mongoose.Schema({
     },
     stikerDate: {
         type: String,
-        required: true
     },
     date: {
         type: Date ,

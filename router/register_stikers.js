@@ -82,8 +82,8 @@ router.get('/one/data', async (req, res) => {
                 phoneNumber: a.phoneNumber,
                 stikerId: a.stikerId,
                 stikerDate: a.date
-            })
-            console.log(a);
+            });
+            console.log(pres); 
         })
 })
 

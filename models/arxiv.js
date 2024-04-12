@@ -20,7 +20,7 @@ const arxivSchema = new mongoose.Schema({
         min: 4,
         max: 4
     },
-    date: {
+    stikerDate: {
         type: String,
         required: true
     },

@@ -43,22 +43,22 @@ router.post('/', async (req, res) => {
         massage: "Tabriklaymiz siz konkurs ishtirokchisiga aylandingiz"
     })
 
-    // const formdata = new FormData();
-    // formdata.append("mobile_phone", req.body.phoneNumber);
-    // formdata.append("message", `${req.body.firstName} ${req.body.lastName}, siz ishtirokchiga aylandingiz. OMAD TILAYMIZ!`);
-    // formdata.append("from", "4546");
+    const formdata = new FormData();
+    formdata.append("mobile_phone", req.body.phoneNumber);
+    formdata.append("message", `${req.body.firstName} ${req.body.lastName}, siz ishtirokchiga aylandingiz. OMAD TILAYMIZ!`);
+    formdata.append("from", "4546");
 
-    // const requestOptions = {
-    //     method: "POST",
-    //     headers: myHeaders,
-    //     body: formdata,
-    //     redirect: "follow"
-    // };
-    // let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
-    //     .then((response) => response.text())
-    //     .then((result) => console.log(result))
-    //     .catch((error) => console.error(error));
-    // console.log(a);
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow"
+    };
+    let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+    console.log(a);
 })
 
 const handleStiker = async () => {
@@ -75,14 +75,14 @@ router.get('/one/data', async (req, res) => {
             res.send(response[as])
             let a = response[as]
             // let r = await Stiker.deleteOne({ _id: a._id })
-            // await Stiker.deleteMany({ phoneNumber: a.phoneNumber })f
-            // let pres = await Arxiv.create({
-            //     firstName: a.firstName,
-            //     lastName: a.lastName,
-            //     phoneNumber: a.phoneNumber,
-            //     stikerId: a.stikerId,
-            //     date: a.date
-            // })
+            await Stiker.deleteMany({ phoneNumber: a.phoneNumber })
+            let pres = await Arxiv.create({
+                firstName: a.firstName,
+                lastName: a.lastName,
+                phoneNumber: a.phoneNumber,
+                stikerId: a.stikerId,
+                date: a.date
+            })
         })
 })
 

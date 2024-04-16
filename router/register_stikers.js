@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
    
     const formdata = new FormData();
     formdata.append("mobile_phone", req.body.phoneNumber);
-    formdata.append("message", `${req.body.firstName} ${req.body.lastName}, siz ishtirokchiga aylandingiz. OMAD TILAYMIZ!`);
+    formdata.append("message", ` NAZOKAT LADY SHOP! ${<br/>} ${req.body.firstName} ${req.body.lastName}! Siz LADY SHOU o'yin ishtirokchisiga aylandingiz OMAD TILAYMIZ ${<br />}. Qo'shimcha ma'lumot uchu: https://t.me/bizda_hamm_75mingnazokat`);
     formdata.append("from", "4546");
 
     const requestOptions = {

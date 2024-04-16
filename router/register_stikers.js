@@ -41,12 +41,9 @@ router.post('/', async (req, res) => {
         status: true,
         massage: "Tabriklaymiz siz konkurs ishtirokchisiga aylandingiz"
     })
-    let as = ''
-    as.innerHtml = "NAZOKAT LADY SHOP! <br/>  ${req.body.firstName} ${req.body.lastName}! Siz LADY SHOU o'yin ishtirokchisiga aylandingiz. OMAD TILAYMIZ. Qo'shimcha ma'lumot uchun: https://t.me/bizda_hamm_75mingnazokat"
-
     const formdata = new FormData();
     formdata.append("mobile_phone", req.body.phoneNumber);
-    formdata.append("message", `${as}`);
+    formdata.append("message", `NAZOKAT LADY SHOP! ${req.body.firstName} ${req.body.lastName}! Siz LADY SHOU o'yin ishtirokchisiga aylandingiz. OMAD TILAYMIZ. Qo'shimcha ma'lumot uchun: https://t.me/bizda_hamm_75mingnazokat`);
     formdata.append("from", "4546");
 
     const requestOptions = {

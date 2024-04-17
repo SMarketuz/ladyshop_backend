@@ -24,7 +24,7 @@ router.post('/create', async (req, res) => {
         status: true,
         massage: "Ma'lumot saqlandi"
     })
-})
+}) 
 
 router.post('/login', async (req, res) => {
     const data = await User.findOne({username: req.body.username})

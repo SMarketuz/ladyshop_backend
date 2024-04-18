@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
     };
     let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
         .then((response) => response.text())
-        // .then((result) => console.log(result))
+        .then((result) => console.log(result))
         .catch((error) => console.error(error));
 })
 
@@ -96,7 +96,7 @@ router.get('/all/data', async (req, res) => {
     })
 })
 router.get('/all', async (req, res) => {
-    const data = (await Stiker.find())
+    const data = await Stiker.find()
     const dataIndex = (await Stiker.find()).length - 1
     res.status(200).json({
         data,

@@ -96,7 +96,7 @@ router.get('/all/data', async (req, res) => {
     })
 })
 router.get('/all', async (req, res) => {
-    const data = await Stiker.length
+    const data = (await Stiker.find()).length
     res.status(200).json({
         data
     })

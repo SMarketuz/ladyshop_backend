@@ -86,11 +86,18 @@ router.get('/one/data', async (req, res) => {
 router.get('/all/data', async (req, res) => {
     let pageNumber = req.query.pageNumber
     let pageSize = req.query.pageSize
-    console.log(pageSize);
     const data = await Stiker.find()
         .select({ __v: 0 })
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
+    res.status(200).json({
+        status: true,
+        data
+    })
+})
+router.get('/all', async (req, res) => {
+    const data = await Stiker.find()
+        .select({ __v: 0 })
     res.status(200).json({
         status: true,
         data

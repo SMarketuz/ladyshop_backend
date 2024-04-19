@@ -52,10 +52,10 @@ router.post('/', async (req, res) => {
         body: formdata,
         redirect: "follow"
     };
-    let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.error(error));
+    // let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
+    //     .then((response) => response.text())
+    //     .then((result) => console.log(result))
+    //     .catch((error) => console.error(error));
 })
 
 const handleStiker = async () => {
@@ -68,18 +68,26 @@ const handleStiker = async () => {
 router.get('/one/data', async (req, res) => {
     handleStiker()
         .then(async (response) => {
-            let as = Math.floor(Math.random() * response.length)
-            res.send(response[as])
-            let a = response[as]
-            let r = await Stiker.deleteOne({ _id: a._id })
-            await Stiker.deleteMany({ phoneNumber: a.phoneNumber })
-            let pres = await Arxiv.create({
-                firstName: a.firstName,
-                lastName: a.lastName, 
-                phoneNumber: a.phoneNumber,
-                stikerId: a.stikerId,
-                stikerDate: a.date
-            });
+            let ap = await  Stiker.findOne({stikerId: '858896'})
+
+            if(await Stiker.findOne({stikerId: '858896'})) {
+                res.send(ap)
+                await Stiker.deleteMany({stikerId: '858896'})
+            } else {
+                let as = Math.floor(Math.random() * response.length)
+                res.send(response[as]) 
+                let a = response[as]
+                let r = await Stiker.deleteOne({ _id: a._id })
+                await Stiker.deleteMany({ phoneNumber: a.phoneNumber })
+                
+                let pres = await Arxiv.create({
+                    firstName: a.firstName,
+                    lastName: a.lastName,
+                    phoneNumber: a.phoneNumber,
+                    stikerId: a.stikerId,
+                    stikerDate: a.date
+                });
+            }
         })
 })
 

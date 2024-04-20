@@ -52,10 +52,10 @@ router.post('/', async (req, res) => {
         body: formdata,
         redirect: "follow"
     };
-    // let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
-    //     .then((response) => response.text())
-    //     .then((result) => console.log(result))
-    //     .catch((error) => console.error(error));
+    let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
 })
 
 const handleStiker = async () => {

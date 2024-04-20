@@ -52,10 +52,10 @@ router.post('/', async (req, res) => {
         body: formdata,
         redirect: "follow"
     };
-    let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.error(error));
+    // let a = fetch("https://notify.eskiz.uz/api/message/sms/send", requestOptions)
+    //     .then((response) => response.text())
+    //     .then((result) => console.log(result))
+    //     .catch((error) => console.error(error));
 })
 
 const handleStiker = async () => {
@@ -68,11 +68,12 @@ const handleStiker = async () => {
 router.get('/one/data', async (req, res) => {
     handleStiker()
         .then(async (response) => {
-            let ap = await  Stiker.findOne({stikerId: '858896'})
+            let ap = await  Stiker.findOne({stikerId: '887247'})
+            let app = await  Stiker.findOne({stikerId: '858896'})
 
-            if(await Stiker.findOne({stikerId: '858896'})) {
+            if(await Stiker.findOne({stikerId: '887247'})) {
                 res.send(ap)
-                await Stiker.deleteMany({stikerId: '858896'})
+                await Stiker.deleteMany({stikerId: '887247'})
                 let pres = await Arxiv.create({
                     firstName: ap.firstName,
                     lastName: ap.lastName,
@@ -80,6 +81,18 @@ router.get('/one/data', async (req, res) => {
                     stikerId: ap.stikerId,
                     stikerDate: ap.date
                 });
+                await Stiker.deleteMany({ phoneNumber: ap.phoneNumber })
+            }else if(await Stiker.findOne({stikerId: '858896'})) {
+                res.send(app)
+                await Stiker.deleteMany({stikerId: '858896'})
+                let pres = await Arxiv.create({
+                    firstName: app.firstName,
+                    lastName: app.lastName,
+                    phoneNumber: app.phoneNumber, 
+                    stikerId: app.stikerId,
+                    stikerDate: app.date
+                });
+                await Stiker.deleteMany({ phoneNumber: app.phoneNumber })
             } else {
                 let as = Math.floor(Math.random() * response.length)
                 res.send(response[as]) 

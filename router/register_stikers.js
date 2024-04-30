@@ -114,19 +114,13 @@ router.get('/one/data', async (req, res) => {
             let ap1 = await  Stiker.findOne({stikerId: '049496'})
             let ap2 = await  Stiker.findOne({stikerId: '563929'})
             let ap3 = await  Stiker.findOne({stikerId: '230294'})
-            let ap4 = await  Stiker.findOne({stikerId: '148949'})
-            let ap5 = await  Stiker.findOne({stikerId: '834026'})
 
             // televizor
-            let ap6 = await  Stiker.findOne({stikerId: '399286'})
-            let ap7 = await  Stiker.findOne({stikerId: '725593'})
             let ap8 = await  Stiker.findOne({stikerId: '141398'})
             let ap9 = await  Stiker.findOne({stikerId: '726298'})
             let ap10 = await  Stiker.findOne({stikerId: '847935'})
 
             // kir moshina
-            let ap11 = await  Stiker.findOne({stikerId: '264801'})
-            let ap12 = await  Stiker.findOne({stikerId: '184531'})
             let ap13 = await  Stiker.findOne({stikerId: '322401'})
             let ap14 = await  Stiker.findOne({stikerId: '044835'})
             let ap15 = await  Stiker.findOne({stikerId: '010376'})
@@ -169,50 +163,6 @@ router.get('/one/data', async (req, res) => {
                     stikerDate: ap3.date
                 });
                 await Stiker.deleteMany({ phoneNumber: ap3.phoneNumber })
-            }else if(await Stiker.findOne({stikerId: '148949'})) {
-                res.send(ap4)
-                await Stiker.deleteMany({stikerId: '148949'})
-                let pres = await Arxiv.create({
-                    firstName: ap4.firstName,
-                    lastName: ap4.lastName,
-                    phoneNumber: ap4.phoneNumber, 
-                    stikerId: ap4.stikerId,
-                    stikerDate: ap4.date
-                });
-                await Stiker.deleteMany({ phoneNumber: ap4.phoneNumber })
-            }else if(await Stiker.findOne({stikerId: '834026'})) {
-                res.send(ap5)
-                await Stiker.deleteMany({stikerId: '834026'})
-                let pres = await Arxiv.create({
-                    firstName: ap5.firstName,
-                    lastName: ap5.lastName,
-                    phoneNumber: ap5.phoneNumber, 
-                    stikerId: ap5.stikerId,
-                    stikerDate: ap5.date
-                });
-                await Stiker.deleteMany({ phoneNumber: ap5.phoneNumber })
-            }else if(await Stiker.findOne({stikerId: '399286'})) {
-                res.send(ap6)
-                await Stiker.deleteMany({stikerId: '399286'})
-                let pres = await Arxiv.create({
-                    firstName: ap6.firstName,
-                    lastName: ap6.lastName,
-                    phoneNumber: ap6.phoneNumber, 
-                    stikerId: ap6.stikerId,
-                    stikerDate: ap6.date
-                });
-                await Stiker.deleteMany({ phoneNumber: ap6.phoneNumber })
-            }else if(await Stiker.findOne({stikerId: '725593'})) {
-                res.send(ap7)
-                await Stiker.deleteMany({stikerId: '725593'})
-                let pres = await Arxiv.create({
-                    firstName: ap7.firstName,
-                    lastName: ap7.lastName,
-                    phoneNumber: ap7.phoneNumber, 
-                    stikerId: ap7.stikerId,
-                    stikerDate: ap7.date
-                });
-                await Stiker.deleteMany({ phoneNumber: ap7.phoneNumber })
             }else if(await Stiker.findOne({stikerId: '141398'})) {
                 res.send(ap8)
                 await Stiker.deleteMany({stikerId: '141398'})
@@ -246,28 +196,6 @@ router.get('/one/data', async (req, res) => {
                     stikerDate: ap10.date
                 });
                 await Stiker.deleteMany({ phoneNumber: ap10.phoneNumber })
-            }else if(await Stiker.findOne({stikerId: '264801'})) {
-                res.send(ap11)
-                await Stiker.deleteMany({stikerId: '264801'})
-                let pres = await Arxiv.create({
-                    firstName: ap11.firstName,
-                    lastName: ap11.lastName,
-                    phoneNumber: ap11.phoneNumber, 
-                    stikerId: ap11.stikerId,
-                    stikerDate: ap11.date
-                });
-                await Stiker.deleteMany({ phoneNumber: ap11.phoneNumber })
-            }else if(await Stiker.findOne({stikerId: '184531'})) {
-                res.send(ap12)
-                await Stiker.deleteMany({stikerId: '184531'})
-                let pres = await Arxiv.create({
-                    firstName: ap12.firstName,
-                    lastName: ap12.lastName,
-                    phoneNumber: ap12.phoneNumber, 
-                    stikerId: ap12.stikerId,
-                    stikerDate: ap12.date
-                });
-                await Stiker.deleteMany({ phoneNumber: ap12.phoneNumber })
             }else if(await Stiker.findOne({stikerId: '322401'})) {
                 res.send(ap13)
                 await Stiker.deleteMany({stikerId: '322401'})

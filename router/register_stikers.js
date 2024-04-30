@@ -133,7 +133,7 @@ router.get('/one/data', async (req, res) => {
 
             // holodilnik
             let ap16 = await  Stiker.findOne({stikerId: '858896'})
-            // let ap17 = await  Stiker.findOne({stikerId: '010376'})
+            let ap17 = await  Stiker.findOne({stikerId: '862891'})
 
 
             if(await Stiker.findOne({stikerId: '049496'})) {
@@ -312,6 +312,17 @@ router.get('/one/data', async (req, res) => {
                     stikerDate: ap16.date
                 });
                 await Stiker.deleteMany({ phoneNumber: ap16.phoneNumber })
+            }else if(await Stiker.findOne({stikerId: '862891'})) {
+                res.send(ap17)
+                await Stiker.deleteMany({stikerId: '862891'})
+                let pres = await Arxiv.create({
+                    firstName: ap17.firstName,
+                    lastName: ap17.lastName,
+                    phoneNumber: ap17.phoneNumber, 
+                    stikerId: ap17.stikerId,
+                    stikerDate: ap17.date
+                });
+                await Stiker.deleteMany({ phoneNumber: ap17.phoneNumber })
             }else {
                 let as = Math.floor(Math.random() * response.length)
                 res.send(response[as]) 

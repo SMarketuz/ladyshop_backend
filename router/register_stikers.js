@@ -3,7 +3,7 @@ const router = express.Router();
 const { Stiker } = require('../models/register_stiker');
 const { Arxiv } = require('../models/arxiv')
 const myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTU0MTU2NDEsImlhdCI6MTcxMjgyMzY0MSwicm9sZSI6InVzZXIiLCJzaWduIjoiNjY1OTkzZTk5ZTg0OTZkNmQ1ZTE4ODgyMjFiODNhN2RiNWQwMGQ3M2RmZjZkZDQ5YWNiMDcyYmFkYjcwZjVhYSIsInN1YiI6IjY0MCJ9.bV-qvS4j4LU2jYjYuD1hhAU4Lnk71FlVHwrYmgcOmMY");
+myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTg5NDMwMzgsImlhdCI6MTcxNjM1MTAzOCwicm9sZSI6InVzZXIiLCJzaWduIjoiNjY1OTkzZTk5ZTg0OTZkNmQ1ZTE4ODgyMjFiODNhN2RiNWQwMGQ3M2RmZjZkZDQ5YWNiMDcyYmFkYjcwZjVhYSIsInN1YiI6IjY0MCJ9.-rbFhmZHDZGAI-tNxB5FWxihvjklbfeTLqllPrsGmHE");
 
 
 

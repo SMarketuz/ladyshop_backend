@@ -6,6 +6,7 @@ const config = require('config')
 
 require('./server/db')()
 require('./server/antpoints')(app)
+console.log(config.get('server'));
 
 
 const port = process.env.PORT || 8080;

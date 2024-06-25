@@ -111,7 +111,7 @@ router.get('/one/data', async (req, res) => {
         // })
         .then(async (response) => {
             let ap1 = await  Stiker.findOne({stikerId: '123031'})
-            let ap2 = await  Stiker.findOne({stikerId: '703987'})
+            let ap2 = await  Stiker.findOne({stikerId: '012021'})
             let ap3 = await  Stiker.findOne({stikerId: '158020'})
             let ap4 = await  Stiker.findOne({stikerId: '076390'})
             let ap5 = await  Stiker.findOne({stikerId: '044652'})
@@ -133,9 +133,9 @@ router.get('/one/data', async (req, res) => {
                     stikerDate: ap1.date
                 });
                 await Stiker.deleteMany({ phoneNumber: ap1.phoneNumber })
-            } else if (await Stiker.findOne({ stikerId: '703987' })) {
+            } else if (await Stiker.findOne({ stikerId: '012021' })) {
                 res.send(ap2)
-                await Stiker.deleteMany({ stikerId: '703987' })
+                await Stiker.deleteMany({ stikerId: '012021' })
                 let pres = await Arxiv.create({
                     firstName: ap2.firstName,
                     lastName: ap2.lastName,
